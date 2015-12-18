@@ -1,0 +1,124 @@
+body {
+	background-image: url("tree_bark.png")
+}
+
+.box {
+	width:50%;
+	height:100px;
+	background: white;
+	margin: auto;
+}
+
+
+.one{
+     box-shadow: 0 10px 5px -5px #666666;
+}
+
+.two{
+	position: relative;
+}
+
+.two:before, .two:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #666666;
+  box-shadow: 0 15px 10px #666666;
+  transform: rotate(-4deg);
+}
+
+.two:after
+{
+  transform: rotate(4deg);
+  right: 10px;
+  left: auto;
+}
+
+
+
+
+
+
+.three{
+	position: relative;
+}
+
+.three:before, .three:after
+{
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #666666;
+  box-shadow: 0 15px 10px #666666;
+  transform: rotate(-10deg);
+}
+
+.three:after
+{
+  transform: rotate(10deg);
+  right: 10px;
+  left: auto;
+}
+
+
+
+
+.four
+{
+    position:relative;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.four:before, .four:after
+{
+	content:"";
+    position:absolute; 
+    z-index: -1;
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:0;
+    bottom:0;
+    left:10px;
+    right:10px;
+    border-radius: 10px;
+} 
+.four:after
+{
+    right:10px; 
+    left:auto; 
+    transform: rotate(3deg);
+}
+
+
+
+.five
+{
+    position:relative;
+    box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.five:before, .five:after
+{
+	content:"";
+    position:absolute; 
+    
+    box-shadow:0 0 20px rgba(0,0,0,0.8);
+    top:0;
+    bottom:0;
+    left:10px;
+    right:10px;
+    border-radius:10px;
+} 
+.five:after
+{
+    right:10px; 
+    left:auto; 
+    transform:rotate(3deg);
+}
