@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<title> Breadly's website </title>
+		<link type="text/css" rel="stylesheet" href="stylesheet for website.css"/>
+	</head>
+	
+	<body>
+			<textarea placeholder="Type here">  </textarea>
+			<br><br>
+			<button onclick="testFunction()"> Click </button>
+			
+			<p id="testp"> </p>
+			
+			<script>
+			function testFunction() {
+				document.getElementById("testp").innerHTML = "Papaya. Guava. P-Diddy.";
+			}
+			</script>
+			
+			<form id="form" onsubmit="return false;">
+				<input style="position:absolute; top:80%; left:5%; width:40%;" type="text" id="userInput" />
+				<input style="position:absolute; top:50%; left:5%; width:40%;" type="submit" onclick="othername();" />
+			</form>
+			
+			<script>
+			function othername() {
+				var input = document.getElementById("userInput").value;
+				document.getElementById("testp2").innerHTML = input;
+			}	
+			</script>
+			<p id="testp2"> </p>
+	</body>
+</html>
