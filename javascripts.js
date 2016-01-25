@@ -7,3 +7,6 @@ function othername() {
 	document.getElementById("list").innerHTML = base;
 	document.getElementById("userInput").value = "";
 }
+function makeInvis() {
+
+}
