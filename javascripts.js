@@ -1,9 +1,9 @@
 var input="";
-var myyybase="";
+var base="";
 
 function othername() {
 	input = document.getElementById("userInput").value;
-	myyybase = myyybase + " " + input;
-	document.getElementById("list").innerHTML = myyybase;
+	base = base + " " + input;
+	document.getElementById("list").innerHTML = base;
 	document.getElementById("userInput").value = "";
 }
