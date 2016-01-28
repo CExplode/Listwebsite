@@ -13,9 +13,6 @@ function othername() {
 	
 }
 
-function displayArray() {
-	document.getElementById("testArray").innerHTML = arrWords[2];
-}
 function makeInvis() {
 
 }
