@@ -6,6 +6,10 @@ var arrinstances = [];
 var tempCounter = 0;
 var largestNum = 0;
 var resortNumber = 0;
+var tempHolder1="";
+var tempHolder2="";
+var intCount=0;
+var intMode="";
 
 function othername() {
 	input = document.getElementById("userInput").value;
@@ -16,33 +20,28 @@ function othername() {
 }
 
 function displayArray() {
-	for( var i = 0; i < arrWords.length; i++) {
+	for(var i = 0; i < arrWords.length; i++)
+	{
+        tempHolder1 = arrWords[i];
+        tempCounter = 1;
+        
+        for(var j = 0; j < arrWords.length; j++)
+        {
+            tempHolder2 = arrWords[j];
+                
+            if(tempHolder1 == tempHolder2)
+            {
+                tempCounter++;
+            }
+            
+            if(tempCounter > intCount)
+            {
+                intCount = tempCounter;
+                intMode = tempHolder1;
+            }
+        }
 		
-		for( var j = 0; j < arrWords.length; j++) {
-			if (arrWords[j] == arrWords[i])
-			{
-				tempCounter += 1;
-			}
-			if (tempCounter > largestNum)
-			{
-				largestNum = tempCounter;
-			}
-			
-		}
-		arrinstances.push(tempCounter);
-			tempCounter=0;
+        document.getElementById("testArray").innerHTML = intMode;
 		
 	}
-	
-	for( var k = largestNum; k > 0; k--) {
-		for( var q = 0; q < arrWords.length; q++) {
-			if (arrinstances[q] == k )
-			{
-				arrWords[resortNumber] = arrWords[q];
-				resortNumber += 1;
-			}
-		}
-	}
-	
-	document.getElementById("testArray").innerHTML = arrWords;
 }
