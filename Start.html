@@ -8,6 +8,14 @@
 	
 		<script src="javascripts.js"></script>
 			
+		<div class="fade">
+				<form id="form2" onsubmit="return false;">
+					<input style="position:fixed; top:5%; left:5%; width:25%; visibility:hidden;" type="submit" value="Enter" id="typeButton" onclick=butType(); />
+					<input style="position:fixed; top:5%; left:35%; width:25%; visibility:hidden;" type="submit" value="List" id="listButton" onclick=butList(); />
+					<input style="position:fixed; top:5%; left:65%; width:25%; visibility:hidden;" type="submit" value="Analytics" id="analyticsButton" onclick=butAnalytics(); />
+				</form>
+		</div>	
+		
 		<p id="list"> </p>
 		<p id="testArray"></p>
 			
@@ -16,15 +24,16 @@
 		<div class="fade">
 				<form id="form" onsubmit="return false;">
 					<input style="position:fixed; top:40%; left:25%; width:50%;" type="text" id="userInput" />
-					<input style="position:fixed; top:50%; left:25%; width:50%;" type="submit" onclick="othername();" />
+					<input style="position:fixed; top:50%; left:25%; width:50%;" type="submit" id="typeSubmit" onclick="othername();" />
 				</form>
 		</div>
 		
+		<!--
 		<div class="fade">
 				<form id="form2" onsubmit="return false;">
-					<input style="position:fixed; top:60%; left:25%; width:50%;" type="submit" value="Display most frequent word" onclick="displayArray();" />
+					<input style="position:fixed; top:60%; left:25%; width:50%;" type="submit" value="Display most frequent word" id="freqWord" onclick="displayArray();" />
 				</form>
 		</div>
-		
+		-->
 	</body>
 </html>

@@ -15,8 +15,38 @@ function othername() {
 	input = document.getElementById("userInput").value;
 	arrWords.push(input);
 	base = base + " " + input;
-	document.getElementById("list").innerHTML = base;
-	document.getElementById("userInput").value = "";
+	document.getElementById("userInput").value = "";	
+	
+	document.getElementById("typeButton").style.visibility = "visible";
+	document.getElementById("listButton").style.visibility = "visible";
+	document.getElementById("analyticsButton").style.visibility = "visible";
+}
+
+function butType() {
+	document.getElementById("userInput").style.visibility = "visible";
+	document.getElementById("typeSubmit").style.visibility = "visible";
+	
+	document.getElementById("list").style.visibility = "hidden";
+	document.getElementById("testArray").style.visibility = "hidden";
+}
+
+function butList() {
+	document.getElementById("list").style.visibility = "visible";
+	
+	document.getElementById("userInput").style.visibility = "hidden";
+	document.getElementById("typeSubmit").style.visibility = "hidden";
+	document.getElementById("testArray").style.visibility = "hidden";
+	
+	document.getElementById("list").innerHTML = arrWords;
+}
+
+function butAnalytics() {
+	document.getElementById("list").style.visibility = "visible";
+	displayArray();
+	
+	document.getElementById("userInput").style.visibility = "hidden";
+	document.getElementById("typeSubmit").style.visibility = "hidden";
+	document.getElementById("testArray").style.visibility = "hidden";
 }
 
 function displayArray() {
@@ -32,6 +62,7 @@ function displayArray() {
             if(tempHolder1 == tempHolder2)
             {
                 tempCounter++;
+				
             }
             
             if(tempCounter > intCount)
@@ -41,7 +72,6 @@ function displayArray() {
             }
         }
 		
-        document.getElementById("testArray").innerHTML = intMode;
-		
+        document.getElementById("list").innerHTML = intMode;	
 	}
 }
