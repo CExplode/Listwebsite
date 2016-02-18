@@ -39,5 +39,6 @@
 #company {
 	color: #808080;
 	font-size: 20px;
-	position:fixed; top:90%; left:90%; 
+	position:fixed; top:90%; right:5%; 
+	z-index: 5;
 }

@@ -15,7 +15,6 @@ function othername() {
 	input = document.getElementById("userInput").value;
 	arrWords.push(input);
 	base = base + " " + input;
-	document.getElementById("userInput").value = "";	
 	
 	document.getElementById("typeButton").style.visibility = "visible";
 	document.getElementById("listButton").style.visibility = "visible";
@@ -23,6 +22,8 @@ function othername() {
 }
 
 function butType() {
+	document.getElementById("userInput").value = "";
+	
 	document.getElementById("userInput").style.visibility = "visible";
 	document.getElementById("typeSubmit").style.visibility = "visible";
 	
@@ -43,10 +44,11 @@ function butList() {
 	document.getElementById("typeSubmit").style.visibility = "hidden";
 	document.getElementById("testArray").style.visibility = "hidden";
 	
-	document.getElementById("list").innerHTML = "The current list of words is: " + arrWords;
+	document.getElementById("list").innerHTML = base;
 }
 
 function butAnalytics() {
+	document.getElementById("userWordParagraph").innerHTML = "";
 	document.getElementById("userWordTest").style.visibility = "visible";
 	document.getElementById("userWordSubmit").style.visibility = "visible";
 	document.getElementById("list").style.visibility = "visible";
