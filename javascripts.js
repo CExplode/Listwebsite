@@ -31,7 +31,7 @@ function butType() {
 	document.getElementById("userWordTest").style.visibility = "hidden";
 	document.getElementById("userWordSubmit").style.visibility = "hidden";
 	document.getElementById("list").style.visibility = "hidden";
-	document.getElementById("testArray").style.visibility = "hidden";
+	document.getElementById("mostWordSearch").style.visibility = "hidden";
 }
 
 function butList() {
@@ -42,7 +42,8 @@ function butList() {
 	document.getElementById("userWordSubmit").style.visibility = "hidden";
 	document.getElementById("userInput").style.visibility = "hidden";
 	document.getElementById("typeSubmit").style.visibility = "hidden";
-	document.getElementById("testArray").style.visibility = "hidden";
+	document.getElementById("analyticsList").style.visibility = "hidden";
+	document.getElementById("mostWordSearch").style.visibility = "hidden";
 	
 	document.getElementById("list").innerHTML = base;
 }
@@ -53,11 +54,12 @@ function butAnalytics() {
 	document.getElementById("userWordSubmit").style.visibility = "visible";
 	document.getElementById("list").style.visibility = "visible";
 	document.getElementById("userWordParagraph").style.visibility = "visible";
-	displayArray();
+	document.getElementById("mostWordSearch").style.visibility = "visible";
 	
 	document.getElementById("userInput").style.visibility = "hidden";
 	document.getElementById("typeSubmit").style.visibility = "hidden";
-	document.getElementById("testArray").style.visibility = "hidden";
+	document.getElementById("list").style.visibility = "hidden";
+
 }
 
 function searchWord() {
@@ -73,7 +75,7 @@ function searchWord() {
 	document.getElementById("userWordTest").value = "";
 	}
 
-function displayArray() {
+function mostWordSearch() {
 	for(var i = 0; i < arrWords.length; i++)
 	{
         tempHolder1 = arrWords[i];
@@ -96,6 +98,6 @@ function displayArray() {
             }
         }
 		
-        document.getElementById("list").innerHTML = "The most common word is " + intMode;	
+        document.getElementById("analyticsList").innerHTML = "The most common word is " + intMode;	
 	}
 }
