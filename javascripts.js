@@ -1,20 +1,12 @@
-var input="";
-var base="";
-var arrayBase="";
+var strInput="";
+var strBase="";
 var arrWords= [];
-var arrinstances = [];
-var tempCounter = 0;
-var largestNum = 0;
-var resortNumber = 0;
-var tempHolder1="";
-var tempHolder2="";
-var intCount=0;
-var intMode="";
 
-function othername() {
-	input = document.getElementById("userInput").value;
-	arrWords.push(input);
-	base = base + " " + input;
+function enterWord() {
+	strInput = document.getElementById("userInput").value;
+	arrWords.push(strInput);
+	strBase = strBase + " " + strInput;
+	document.getElementById("userInput").value = "";	
 	
 	document.getElementById("typeButton").style.visibility = "visible";
 	document.getElementById("listButton").style.visibility = "visible";
@@ -22,82 +14,86 @@ function othername() {
 }
 
 function butType() {
-	document.getElementById("userInput").value = "";
-	
 	document.getElementById("userInput").style.visibility = "visible";
 	document.getElementById("typeSubmit").style.visibility = "visible";
 	
-	document.getElementById("userWordParagraph").style.visibility = "hidden";
+	document.getElementById("mostCommonWordP").style.visibility = "hidden";
+	document.getElementById("mostCommon").style.visibility = "hidden";
+	document.getElementById("userWordParagraphP").style.visibility = "hidden";
 	document.getElementById("userWordTest").style.visibility = "hidden";
 	document.getElementById("userWordSubmit").style.visibility = "hidden";
-	document.getElementById("list").style.visibility = "hidden";
-	document.getElementById("mostWordSearch").style.visibility = "hidden";
+	document.getElementById("listP").style.visibility = "hidden";
 }
 
 function butList() {
-	document.getElementById("list").style.visibility = "visible";
+	document.getElementById("listP").style.visibility = "visible";
 	
-	document.getElementById("userWordParagraph").style.visibility = "hidden";
+	document.getElementById("userWordParagraphP").style.visibility = "hidden";
 	document.getElementById("userWordTest").style.visibility = "hidden";
 	document.getElementById("userWordSubmit").style.visibility = "hidden";
 	document.getElementById("userInput").style.visibility = "hidden";
 	document.getElementById("typeSubmit").style.visibility = "hidden";
-	document.getElementById("analyticsList").style.visibility = "hidden";
-	document.getElementById("mostWordSearch").style.visibility = "hidden";
+	document.getElementById("mostCommonWordP").style.visibility = "hidden";
+	document.getElementById("mostCommon").style.visibility = "hidden";
 	
-	document.getElementById("list").innerHTML = base;
+	document.getElementById("listP").innerHTML = "The current list of words is: " + strBase;
 }
 
 function butAnalytics() {
-	document.getElementById("userWordParagraph").innerHTML = "";
 	document.getElementById("userWordTest").style.visibility = "visible";
 	document.getElementById("userWordSubmit").style.visibility = "visible";
-	document.getElementById("list").style.visibility = "visible";
-	document.getElementById("userWordParagraph").style.visibility = "visible";
-	document.getElementById("mostWordSearch").style.visibility = "visible";
+	document.getElementById("userWordParagraphP").style.visibility = "visible";
+	document.getElementById("mostCommon").style.visibility = "visible";
 	
+	document.getElementById("mostCommonWordP").style.visibility = "hidden";
+	document.getElementById("listP").style.visibility = "hidden";
 	document.getElementById("userInput").style.visibility = "hidden";
 	document.getElementById("typeSubmit").style.visibility = "hidden";
-	document.getElementById("list").style.visibility = "hidden";
-
 }
 
 function searchWord() {
-	input = document.getElementById("userWordTest").value;
-	intCount = 0;
+	strInput = document.getElementById("userWordTest").value;
+	var intCount=0;
 	for(var i = 0; i < arrWords.length; i++){
-		if(input == arrWords[i]){
+		if( strInput == arrWords[i]){
 			intCount++;
 		}
 	}
 	
-	document.getElementById("userWordParagraph").innerHTML = input + " has been typed in " + intCount + " times.";
+	document.getElementById("mostCommonWordP").style.visibility = "visible";
+	document.getElementById("userWordParagraphP").innerHTML = strInput + " has been typed in " + intCount + " times.";
 	document.getElementById("userWordTest").value = "";
 	}
 
-function mostWordSearch() {
+function displayMostCommonWord() {
+	var intTempCounter = 0;
+	var strMCWHolder1="";
+	var strMCWHolder2="";
+	var intCount=0;
+	var strMostCommonWord="";
+	
 	for(var i = 0; i < arrWords.length; i++)
 	{
-        tempHolder1 = arrWords[i];
-        tempCounter = 1;
+        strMCWHolder1 = arrWords[i];
+        intTempCounter = 1;
         
         for(var j = 0; j < arrWords.length; j++)
         {
-            tempHolder2 = arrWords[j];
+            strMCWHolder2 = arrWords[j];
                 
-            if(tempHolder1 == tempHolder2)
+            if(strMCWHolder1 == strMCWHolder2)
             {
-                tempCounter++;
+                intTempCounter++;
 				
             }
             
-            if(tempCounter > intCount)
+            if(intTempCounter > intCount)
             {
-                intCount = tempCounter;
-                intMode = tempHolder1;
+                intCount = intTempCounter;
+                strMostCommonWord = strMCWHolder1;
             }
         }
-		
-        document.getElementById("analyticsList").innerHTML = "The most common word is " + intMode;	
+		document.getElementById("mostCommonWordP").style.visibility = "visible";
+        document.getElementById("mostCommonWordP").innerHTML = "The most common word is " + strMostCommonWord;	
 	}
 }
