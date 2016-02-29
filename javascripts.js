@@ -4,7 +4,10 @@ var arrWords= [];
 
 function enterWord() {
 	strInput = document.getElementById("userInput").value;
-	arrWords.push(strInput);
+	var testArr = strInput.split(" ");
+	for(var i = 0; i < testArr.length; i++){
+		arrWords.push(testArr[i]);
+	}
 	strBase = strBase + " " + strInput;
 	document.getElementById("userInput").value = "";	
 	
@@ -60,7 +63,7 @@ function searchWord() {
 		}
 	}
 	
-	document.getElementById("userWordParagraphP").style.visibility = "visible";
+	document.getElementById("mostCommonWordP").style.visibility = "visible";
 	document.getElementById("userWordParagraphP").innerHTML = strInput + " has been typed in " + intCount + " times.";
 	document.getElementById("userWordTest").value = "";
 	}
