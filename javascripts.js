@@ -36,7 +36,7 @@ function butList() {
 	document.getElementById("mostCommonWordP").style.visibility = "hidden";
 	document.getElementById("mostCommon").style.visibility = "hidden";
 	
-	document.getElementById("listP").innerHTML = "The current list of words is: " + strBase;
+	document.getElementById("listP").innerHTML = strBase;
 }
 
 function butAnalytics() {
@@ -60,7 +60,7 @@ function searchWord() {
 		}
 	}
 	
-	document.getElementById("mostCommonWordP").style.visibility = "visible";
+	document.getElementById("userWordParagraphP").style.visibility = "visible";
 	document.getElementById("userWordParagraphP").innerHTML = strInput + " has been typed in " + intCount + " times.";
 	document.getElementById("userWordTest").value = "";
 	}
