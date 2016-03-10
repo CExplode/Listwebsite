@@ -1,8 +1,14 @@
+//Creates the global variables for the input, the list, and the array
+
+//http://www.chartjs.org/docs/
+
 var strInput="";
 var strBase="";
 var arrWords= [];
+var myBarChart;
 
 function enterWord() {
+	
 	//Getting the user's input 
 	strInput = document.getElementById("userInput").value;
 	
@@ -32,6 +38,7 @@ function butType() {
 	document.getElementById("userInput").style.visibility = "visible";
 	document.getElementById("typeSubmit").style.visibility = "visible";
 	
+	
 	//Makes everything that is not necessary hidden
 	document.getElementById("mostCommonWordP").style.visibility = "hidden";
 	document.getElementById("mostCommon").style.visibility = "hidden";
@@ -39,12 +46,15 @@ function butType() {
 	document.getElementById("userWordTest").style.visibility = "hidden";
 	document.getElementById("userWordSubmit").style.visibility = "hidden";
 	document.getElementById("listP").style.visibility = "hidden";
+	
+	myBarChart.destroy();
 }
 
 function butList() {
 	//makes the list visible
 	document.getElementById("listP").style.visibility = "visible";
 	document.getElementById("listP").innerHTML = strBase;
+	
 	
 	//Makes everything that is not necessary hidden
 	document.getElementById("userWordParagraphP").style.visibility = "hidden";
@@ -55,6 +65,7 @@ function butList() {
 	document.getElementById("mostCommonWordP").style.visibility = "hidden";
 	document.getElementById("mostCommon").style.visibility = "hidden";
 	
+	myBarChart.destroy();
 }
 
 function butAnalytics() {
@@ -64,11 +75,14 @@ function butAnalytics() {
 	document.getElementById("userWordParagraphP").style.visibility = "visible";
 	document.getElementById("mostCommon").style.visibility = "visible";
 	
+	
 	//Makes everything that is not necessary hidden
 	document.getElementById("mostCommonWordP").style.visibility = "hidden";
 	document.getElementById("listP").style.visibility = "hidden";
 	document.getElementById("userInput").style.visibility = "hidden";
 	document.getElementById("typeSubmit").style.visibility = "hidden";
+	
+	myBarChart.destroy();
 }
 
 function searchWord() {
@@ -81,7 +95,7 @@ function searchWord() {
 		}
 	}
 	//Displays how many times the entered word is in the array
-	document.getElementById("mostCommonWordP").style.visibility = "visible";
+	document.getElementById("mostCommonWordP").style.visibility = "hidden";
 	document.getElementById("userWordParagraphP").innerHTML = strInput + " has been typed in " + intCount + " times.";
 	
 	//Blanks out the text field
@@ -89,18 +103,23 @@ function searchWord() {
 	}
 
 function displayMostCommonWord() {
+	//creates the required variables
 	var intTempCounter = 0;
 	var strMCWHolder1="";
 	var strMCWHolder2="";
 	var intCount=0;
 	var strMostCommonWord="";
+	var strMostCommonWord2="";
+	var strMostCommonWord3="";
 	
+	//loop goes through the whole array
 	for(var i = 0; i < arrWords.length; i++)
 	{
 		//It holds the value of this current position in the main array
         strMCWHolder1 = arrWords[i];
         intTempCounter = 1;
         
+		//loop goes through the whole array
         for(var j = 0; j < arrWords.length; j++)
         {
 			//It holds the value of this current position in the main array
@@ -124,4 +143,39 @@ function displayMostCommonWord() {
 		document.getElementById("mostCommonWordP").style.visibility = "visible";
         document.getElementById("mostCommonWordP").innerHTML = "The most common word is " + strMostCommonWord;	
 	}
+	
+	
+	
+	// Get the context of the canvas element we want to select
+	var ctx = document.getElementById("myChart").getContext("2d");
+	var data = {
+		labels: [strMostCommonWord, "2nd", "3rd"],
+		datasets:
+		[
+        {
+            label: "Frequency of Words:",
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,0.8)",
+            highlightFill: "rgba(220,220,220,0.75)",
+            highlightStroke: "rgba(220,220,220,1)",
+            data: [intCount-1, 5, 3]
+        }
+		]
+	};
+	myBarChart = new Chart(ctx).Bar(data,{responsive : true});
 }
+
+var resetCanvas = function () {
+  $('#results-graph').remove(); // this is my <canvas> element
+  $('#graph-container').append('<canvas id="results-graph"><canvas>');
+  canvas = document.querySelector('#results-graph');
+  ctx = canvas.getContext('2d');
+  ctx.canvas.width = $('#graph').width(); // resize to parent width
+  ctx.canvas.height = $('#graph').height(); // resize to parent height
+
+  var x = canvas.width/2;
+  var y = canvas.height/2;
+  ctx.font = '10pt Verdana';
+  ctx.textAlign = 'center';
+  ctx.fillText('This text is centered on the canvas', x, y);
+};

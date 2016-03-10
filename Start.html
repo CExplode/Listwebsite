@@ -7,7 +7,14 @@
 	<body>
 	
 		<script src="javascripts.js"></script>
-			
+		<script src="Chart.js"></script>
+		
+		<div style="position: fixed; width: 50%; top:45%; left: 25%;" class="fade">
+		
+			<canvas id="myChart" width="200px" height="200px"> </canvas>
+		
+		</div>
+		
 		<div class="fade">
 				<form id="form2" onsubmit="return false;">
 					<!-- Creates the three buttons at the top of the page along with the list and most common word paragraphs -->
@@ -15,7 +22,7 @@
 					<input style="position:fixed; top:5%; left:37.5%; width:25%; visibility:hidden;" type="submit" value="list" id="listButton" onclick=butList(); />
 					<input style="position:fixed; top:5%; left:70%; width:25%; visibility:hidden;" type="submit" value="Analytics" id="analyticsButton" onclick=butAnalytics(); />
 					<p id="listP" style="position:fixed; top:10%; left:5%; width:90%; visibility:hidden; ">" </p>
-					<p id="mostCommonWordP" style="position:fixed; top:30%; left:25%; width:50%; visibility:hidden; text-align: center;">" </p>
+					<p id="mostCommonWordP" style="position:fixed; top:40%; left:25%; width:50%; visibility:hidden; text-align: center;">" </p>
 				</form>
 		</div>	
 		
@@ -35,10 +42,10 @@
 		<div class="fade">
 				<form id="form3" onsubmit="return false;">
 					<!-- Creates the buttons, text boxes, and paragraphs for the most common word and to find how many times a word has been entered -->
-					<p id="userWordParagraphP" style="position:fixed; top:55%; left:25%; width:50% ;text-align: center;"></p>
-					<input style="position:fixed; top:45%; left:25%; width:50%; visibility:hidden;" type="text" id="userWordTest" />
-					<input style="position:fixed; top:50%; left:25%; width:50%; visibility:hidden;" type="submit" id="userWordSubmit" value="Word Count" onclick="searchWord();" />
-					<input style="position:fixed; top:25%; left:25%; width:50%; visibility:hidden;" type="submit" id="mostCommon" value="Most common word" onclick="displayMostCommonWord();" />
+					<p id="userWordParagraphP" style="position:fixed; top:25%; left:25%; width:50% ;text-align: center;"></p>
+					<input style="position:fixed; top:15%; left:25%; width:50%; visibility:hidden;" type="text" id="userWordTest" />
+					<input style="position:fixed; top:20%; left:25%; width:50%; visibility:hidden;" type="submit" id="userWordSubmit" value="Word Count" onclick="searchWord();" />
+					<input style="position:fixed; top:35%; left:25%; width:50%; visibility:hidden;" type="submit" id="mostCommon" value="Most common word" onclick="displayMostCommonWord();" />
 				</form>
 		</div>
 		
