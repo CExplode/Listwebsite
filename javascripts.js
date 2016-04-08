@@ -26,11 +26,6 @@ function enterWord() {
 	
 	//clears the text field
 	document.getElementById("userInput").value = ""; 
-	
-	//makes each of the buttons up top visible
-	//document.getElementById("typeButton").style.visibility = "visible";
-	//document.getElementById("listButton").style.visibility = "visible";
-	//document.getElementById("analyticsButton").style.visibility = "visible";
 }
 
 function butType() {
@@ -45,33 +40,10 @@ function butList() {
 	document.getElementById("listP").style.visibility = "visible";
 	document.getElementById("listP").innerHTML = strBase;
 	
-	
-	//Makes everything that is not necessary hidden
-	//document.getElementById("userWordParagraphP").style.visibility = "hidden";
-	//document.getElementById("userWordTest").style.visibility = "hidden";
-	//document.getElementById("userWordSubmit").style.visibility = "hidden";
-	//document.getElementById("userInput").style.visibility = "hidden";
-	//document.getElementById("typeSubmit").style.visibility = "hidden";
-	//document.getElementById("mostCommonWordP").style.visibility = "hidden";
-	//document.getElementById("mostCommon").style.visibility = "hidden";
-	
 	myBarChart.destroy();
 }
 
 function butAnalytics() {
-	//Makes the word tester and most common word available
-	//document.getElementById("userWordTest").style.visibility = "visible";
-	//document.getElementById("userWordSubmit").style.visibility = "visible";
-	//document.getElementById("userWordParagraphP").style.visibility = "visible";
-	//document.getElementById("mostCommon").style.visibility = "visible";
-	
-	
-	//Makes everything that is not necessary hidden
-	//document.getElementById("mostCommonWordP").style.visibility = "hidden";
-	//document.getElementById("listP").style.visibility = "hidden";
-	//document.getElementById("userInput").style.visibility = "hidden";
-	//document.getElementById("typeSubmit").style.visibility = "hidden";
-	
 	myBarChart.destroy();
 }
 

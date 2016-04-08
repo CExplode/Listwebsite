@@ -3,83 +3,79 @@
 		<title> Flip That Pancake! </title>
 		<link type="text/css" rel="stylesheet" href="website stylesheet.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-	<script>
-	$(document).ready(function() {
-		$("#userInput").fadeIn(3000);
-		$("#typeSubmit").fadeIn(3000);
-	});
-	</script>
+		<script>
+		$(document).ready(function() {
+			$("#userInput").fadeIn(3000);
+			$("#typeSubmit").fadeIn(3000);
+		});
+		</script>
 		
-	<script>
-	$(document).ready(function(){
-		$("#typeSubmit").click(function(){
-			$("#userInput").fadeOut();
-			$("#typeSubmit").fadeOut();
-			$("#typeButton").fadeIn(2000);
-			$("#listButton").fadeIn(2000);
-			$("#analyticsButton").fadeIn(2000);
-			$("#companyP").fadeTo(2000, 0.5);
-			
+		<script>
+		$(document).ready(function(){
+			$("#typeSubmit").click(function(){
+				$("#userInput").fadeOut();
+				$("#typeSubmit").fadeOut();
+				$("#typeButton").fadeIn(2000);
+				$("#listButton").fadeIn(2000);
+				$("#analyticsButton").fadeIn(2000);
+				$("#companyP").fadeTo(2000, 0.5);	
+			});
 		});
-	});
-	</script>
+		</script>
 	
-	<script>
-	$(document).ready(function(){
-		$("#typeButton").click(function(){
-			$("#userWordTest").fadeOut();
-			$("#userWordSubmit").fadeOut();
-			$("#mostCommon").fadeOut();
-			$("#listP").fadeOut();
-			$("#userWordParagraphP").fadeOut();
-			$("#userInput").fadeIn(2000);
-			$("#typeSubmit").fadeIn(2000);
+		<script>
+		$(document).ready(function(){
+			$("#typeButton").click(function(){
+				$("#userWordTest").fadeOut();
+				$("#userWordSubmit").fadeOut();
+				$("#mostCommon").fadeOut();
+				$("#listP").fadeOut();
+				$("#userWordParagraphP").fadeOut();
+				$("#userInput").fadeIn(2000);
+				$("#typeSubmit").fadeIn(2000);
+			});
 		});
-	});
-	</script>
+		</script>
 	
-	<script>
-	$(document).ready(function(){
-		$("#listButton").click(function(){
-			$("#userWordTest").fadeOut();
-			$("#userWordSubmit").fadeOut();
-			$("#mostCommon").fadeOut();
-			$("#userWordParagraphP").fadeOut();
-			$("#userInput").fadeOut();
-			$("#typeSubmit").fadeOut();
-			$("#listP").fadeIn(2000);
+		<script>
+		$(document).ready(function(){
+			$("#listButton").click(function(){
+				$("#userWordTest").fadeOut();
+				$("#userWordSubmit").fadeOut();
+				$("#mostCommon").fadeOut();
+				$("#userWordParagraphP").fadeOut();
+				$("#userInput").fadeOut();
+				$("#typeSubmit").fadeOut();
+				$("#listP").fadeIn(2000);
+			});
 		});
-	});
-	</script>
+		</script>
 	
-	<script>
-	$(document).ready(function(){
-		$("#analyticsButton").click(function(){
-			$("#userInput").fadeOut();
-			$("#typeSubmit").fadeOut();
-			$("#listP").fadeOut();
-			$("#userWordTest").fadeIn(2000);
-			$("#userWordSubmit").fadeIn(2000);
-			$("#mostCommon").fadeIn(2000);
-			$("#userWordParagraphP").fadeIn(2000);
+		<script>
+		$(document).ready(function(){
+			$("#analyticsButton").click(function(){
+				$("#userInput").fadeOut();
+				$("#typeSubmit").fadeOut();
+				$("#listP").fadeOut();
+				$("#userWordTest").fadeIn(2000);
+				$("#userWordSubmit").fadeIn(2000);
+				$("#mostCommon").fadeIn(2000);
+				$("#userWordParagraphP").fadeIn(2000);
+			});
 		});
-	});
-	</script>
+		</script>
 	</head>
 	
 	<body>
-	
 		<script src="javascripts.js"></script>
 		<script src="Chart.js"></script>
 		
 		<div style="position: fixed; width: 50%; top:45%; left: 25%;">
-		
 			<canvas id="myChart" width="200px" height="200px"> </canvas>
-		
 		</div>
 		
 		<!-- Creates the Conley logo in the bottom corner -->
-		<p id="companyP" display: > Conley Co. </p>
+		<p style="color: #000000; font-size: 20px; position:fixed; top:90%; left:90%; display: none;" id="companyP" display: > Conley Co. </p>
 		<form id="form" onsubmit="return false;">
 			<!-- Creates the text box and button to enter words -->
 			<input style="position:fixed; top:45%; left:25%; width:50%; display:none;" type="text" id="userInput" />
@@ -97,7 +93,6 @@
 		</form>
 		
 		<!-- Creates the paragraph that shows how many times a word has been entered -->
-		
 		<form id="form3" onsubmit="return false;">
 			<!-- Creates the buttons, text boxes, and paragraphs for the most common word and to find how many times a word has been entered -->
 			<p style="position:fixed; top:25%; left:25%; width:50% ;text-align: center;" id="userWordParagraphP" ></p>
