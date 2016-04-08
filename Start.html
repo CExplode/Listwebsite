@@ -2,62 +2,6 @@
 	<head>
 		<title> Flip That Pancake! </title>
 		<link type="text/css" rel="stylesheet" href="website stylesheet.css"/>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-	<script>
-	$(document).ready(function(){
-		$("#typeSubmit").click(function(){
-			$("#userInput").fadeOut();
-			$("#typeSubmit").fadeOut();
-			$("#typeButton").fadeIn(2000);
-			$("#listButton").fadeIn(2000);
-			$("#analyticsButton").fadeIn(2000);
-			$("#companyP").fadeTo(2000, 0.5);
-			
-		});
-	});
-	</script>
-	
-	<script>
-	$(document).ready(function(){
-		$("#typeButton").click(function(){
-			$("#userWordTest").fadeOut();
-			$("#userWordSubmit").fadeOut();
-			$("#mostCommon").fadeOut();
-			$("#listP").fadeOut();
-			$("#userWordParagraphP").fadeOut();
-			$("#userInput").fadeIn();
-			$("#typeSubmit").fadeIn();
-		});
-	});
-	</script>
-	
-	<script>
-	$(document).ready(function(){
-		$("#listButton").click(function(){
-			$("#userWordTest").fadeOut();
-			$("#userWordSubmit").fadeOut();
-			$("#mostCommon").fadeOut();
-			$("#userWordParagraphP").fadeOut();
-			$("#userInput").fadeOut();
-			$("#typeSubmit").fadeOut();
-			$("#listP").fadeIn();
-		});
-	});
-	</script>
-	
-	<script>
-	$(document).ready(function(){
-		$("#analyticsButton").click(function(){
-			$("#userInput").fadeOut();
-			$("#typeSubmit").fadeOut();
-			$("#listP").fadeOut();
-			$("#userWordTest").fadeIn();
-			$("#userWordSubmit").fadeIn();
-			$("#mostCommon").fadeIn();
-			$("#userWordParagraphP").fadeIn();
-		});
-	});
-	</script>
 	</head>
 	
 	<body>
@@ -65,39 +9,45 @@
 		<script src="javascripts.js"></script>
 		<script src="Chart.js"></script>
 		
-		<div style="position: fixed; width: 50%; top:45%; left: 25%;">
+		<div style="position: fixed; width: 50%; top:45%; left: 25%;" class="fade">
 		
 			<canvas id="myChart" width="200px" height="200px"> </canvas>
 		
 		</div>
 		
-		<!-- Creates the Conley logo in the bottom corner -->
-		<p id="companyP" display: > Conley Co. </p>
-		
-		<form id="form" onsubmit="return false;">
-			<!-- Creates the text box and button to enter words -->
-			<input style="position:fixed; top:45%; left:25%; width:50%;" type="text" id="userInput" />
-			<input style="position:fixed; top:50%; left:25%; width:50%;" type="submit" id="typeSubmit" onclick="enterWord();" />
-		</form>
-		
-		<form id="form2" onsubmit="return false;">
-			<!-- Creates the three buttons at the top of the page along with the list and most common word paragraphs -->
-			<input style="position:fixed; top:5%; left:5%; width:25%; display:none;" type="submit" value="Enter" id="typeButton" onclick=butType(); />
-			<input style="position:fixed; top:5%; left:37.5%; width:25%; display:none;" type="submit" value="list" id="listButton" onclick=butList(); />
-			<input style="position:fixed; top:5%; left:70%; width:25%; display:none;" type="submit" value="Analytics" id="analyticsButton" onclick=butAnalytics(); />
-			<p style="position:fixed; top:10%; left:5%; width:90%; display:none;"  id="listP"> </p>
-			<p style="position:fixed; top:40%; left:25%; width:50%; display:none; text-align: center;" id="mostCommonWordP"  > </p>
-		</form>
+		<div class="fade">
+				<form id="form2" onsubmit="return false;">
+					<!-- Creates the three buttons at the top of the page along with the list and most common word paragraphs -->
+					<input style="position:fixed; top:5%; left:5%; width:25%; visibility:hidden;" type="submit" value="Enter" id="typeButton" onclick=butType(); />
+					<input style="position:fixed; top:5%; left:37.5%; width:25%; visibility:hidden;" type="submit" value="list" id="listButton" onclick=butList(); />
+					<input style="position:fixed; top:5%; left:70%; width:25%; visibility:hidden;" type="submit" value="Analytics" id="analyticsButton" onclick=butAnalytics(); />
+					<p id="listP" style="position:fixed; top:10%; left:5%; width:90%; visibility:hidden; ">" </p>
+					<p id="mostCommonWordP" style="position:fixed; top:40%; left:25%; width:50%; visibility:hidden; text-align: center;">" </p>
+				</form>
+		</div>	
 		
 		<!-- Creates the paragraph that shows how many times a word has been entered -->
 		
-		<form id="form3" onsubmit="return false;">
-			<!-- Creates the buttons, text boxes, and paragraphs for the most common word and to find how many times a word has been entered -->
-			<p style="position:fixed; top:25%; left:25%; width:50% ;text-align: center;" id="userWordParagraphP" ></p>
-			<input style="position:fixed; top:15%; left:25%; width:50%; display:none;" type="text" id="userWordTest" />
-			<input style="position:fixed; top:20%; left:25%; width:50%; display:none;" type="submit" id="userWordSubmit" value="Word Count" onclick=searchWord(); />
-			<input style="position:fixed; top:35%; left:25%; width:50%; display:none;" type="submit" id="mostCommon" value="Most common word" onclick=displayMostCommonWord(); />
-		</form>
+		<!-- Creates the Conley logo in the bottom corner -->
+		<p class="fade" id="companyP" > Conley Co. </p>
+			
+		<div class="fade">
+				<form id="form" onsubmit="return false;">
+					<!-- Creates the text box and button to enter words -->
+					<input style="position:fixed; top:45%; left:25%; width:50%;" type="text" id="userInput" />
+					<input style="position:fixed; top:50%; left:25%; width:50%;" type="submit" id="typeSubmit" onclick="enterWord();" />
+				</form>
+		</div>
+		
+		<div class="fade">
+				<form id="form3" onsubmit="return false;">
+					<!-- Creates the buttons, text boxes, and paragraphs for the most common word and to find how many times a word has been entered -->
+					<p id="userWordParagraphP" style="position:fixed; top:25%; left:25%; width:50% ;text-align: center;"></p>
+					<input style="position:fixed; top:15%; left:25%; width:50%; visibility:hidden;" type="text" id="userWordTest" />
+					<input style="position:fixed; top:20%; left:25%; width:50%; visibility:hidden;" type="submit" id="userWordSubmit" value="Word Count" onclick="searchWord();" />
+					<input style="position:fixed; top:35%; left:25%; width:50%; visibility:hidden;" type="submit" id="mostCommon" value="Most common word" onclick="displayMostCommonWord();" />
+				</form>
+		</div>
 		
 	</body>
 </html>
