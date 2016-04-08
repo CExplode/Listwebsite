@@ -7,6 +7,58 @@ var strBase="";
 var arrWords= [];
 var myBarChart;
 
+$(document).ready(function() {
+	$("#userInput").fadeIn(3000);
+	$("#typeSubmit").fadeIn(3000);
+});
+
+$(document).ready(function(){
+	$("#typeSubmit").click(function(){
+		$("#userInput").fadeOut();
+		$("#typeSubmit").fadeOut();
+		$("#typeButton").fadeIn(2000);
+		$("#listButton").fadeIn(2000);
+		$("#analyticsButton").fadeIn(2000);
+		$("#companyP").fadeTo(2000, 0.5);	
+	});
+});
+
+$(document).ready(function(){
+	$("#typeButton").click(function(){
+		$("#userWordTest").fadeOut();
+		$("#userWordSubmit").fadeOut();
+		$("#mostCommon").fadeOut();
+		$("#listP").fadeOut();
+		$("#userWordParagraphP").fadeOut();
+		$("#userInput").fadeIn(2000);
+		$("#typeSubmit").fadeIn(2000);
+	});
+});
+
+$(document).ready(function(){
+	$("#listButton").click(function(){
+		$("#userWordTest").fadeOut();
+		$("#userWordSubmit").fadeOut();
+		$("#mostCommon").fadeOut();
+		$("#userWordParagraphP").fadeOut();
+		$("#userInput").fadeOut();
+		$("#typeSubmit").fadeOut();
+		$("#listP").fadeIn(2000);
+	});
+});
+
+$(document).ready(function(){
+	$("#analyticsButton").click(function(){
+		$("#userInput").fadeOut();
+		$("#typeSubmit").fadeOut();
+		$("#listP").fadeOut();
+		$("#userWordTest").fadeIn(2000);
+		$("#userWordSubmit").fadeIn(2000);
+		$("#mostCommon").fadeIn(2000);
+		$("#userWordParagraphP").fadeIn(2000);
+});
+});
+
 function enterWord() {
 	
 	//Getting the user's input 
