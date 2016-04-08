@@ -4,6 +4,13 @@
 		<link type="text/css" rel="stylesheet" href="website stylesheet.css"/>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script>
+	$(document).ready(function() {
+		$("#userInput").fadeIn(3000);
+		$("#typeSubmit").fadeIn(3000);
+	});
+	</script>
+		
+	<script>
 	$(document).ready(function(){
 		$("#typeSubmit").click(function(){
 			$("#userInput").fadeOut();
@@ -25,8 +32,8 @@
 			$("#mostCommon").fadeOut();
 			$("#listP").fadeOut();
 			$("#userWordParagraphP").fadeOut();
-			$("#userInput").fadeIn();
-			$("#typeSubmit").fadeIn();
+			$("#userInput").fadeIn(2000);
+			$("#typeSubmit").fadeIn(2000);
 		});
 	});
 	</script>
@@ -40,7 +47,7 @@
 			$("#userWordParagraphP").fadeOut();
 			$("#userInput").fadeOut();
 			$("#typeSubmit").fadeOut();
-			$("#listP").fadeIn();
+			$("#listP").fadeIn(2000);
 		});
 	});
 	</script>
@@ -51,10 +58,10 @@
 			$("#userInput").fadeOut();
 			$("#typeSubmit").fadeOut();
 			$("#listP").fadeOut();
-			$("#userWordTest").fadeIn();
-			$("#userWordSubmit").fadeIn();
-			$("#mostCommon").fadeIn();
-			$("#userWordParagraphP").fadeIn();
+			$("#userWordTest").fadeIn(2000);
+			$("#userWordSubmit").fadeIn(2000);
+			$("#mostCommon").fadeIn(2000);
+			$("#userWordParagraphP").fadeIn(2000);
 		});
 	});
 	</script>
@@ -73,12 +80,12 @@
 		
 		<!-- Creates the Conley logo in the bottom corner -->
 		<p id="companyP" display: > Conley Co. </p>
-		
 		<form id="form" onsubmit="return false;">
 			<!-- Creates the text box and button to enter words -->
-			<input style="position:fixed; top:45%; left:25%; width:50%;" type="text" id="userInput" />
-			<input style="position:fixed; top:50%; left:25%; width:50%;" type="submit" id="typeSubmit" onclick="enterWord();" />
+			<input style="position:fixed; top:45%; left:25%; width:50%; display:none;" type="text" id="userInput" />
+			<input style="position:fixed; top:50%; left:25%; width:50%; display:none;" type="submit" id="typeSubmit" onclick="enterWord();" />
 		</form>
+
 		
 		<form id="form2" onsubmit="return false;">
 			<!-- Creates the three buttons at the top of the page along with the list and most common word paragraphs -->
