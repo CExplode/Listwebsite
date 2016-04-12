@@ -78,12 +78,10 @@ function enterWord() {
 	
 	//clears the text field
 	document.getElementById("userInput").value = ""; 
+	
 }
 
 function butType() {
-	//makes it possible for the user to enter words
-	
-	
 	myBarChart.destroy();
 }
 
@@ -117,14 +115,16 @@ function searchWord() {
 	}
 
 function displayMostCommonWord() {
+	
+	var arrWordsHold=[];
+	arrWordsHold = arrWords.slice(0);
+	console.log(arrWords);
 	//creates the required variables
 	var intTempCounter = 0;
 	var strMCWHolder1="";
 	var strMCWHolder2="";
 	var intCount=0;
 	var strMostCommonWord="";
-	var strMostCommonWord2="";
-	var strMostCommonWord3="";
 	
 	//loop goes through the whole array
 	for(var i = 0; i < arrWords.length; i++)
@@ -153,17 +153,116 @@ function displayMostCommonWord() {
                 strMostCommonWord = strMCWHolder1;
             }
         }
-		//Displays the most common word
-		document.getElementById("mostCommonWordP").style.visibility = "visible";
-        document.getElementById("mostCommonWordP").innerHTML = "The most common word is " + strMostCommonWord;	
+		
+	}
+		
+	for(var q = 0; q < arrWords.length; q++)
+	{
+		if (arrWords[q] == strMostCommonWord)
+		{
+			console.log(arrWords);
+			arrWords.splice(q,1);
+			q -= 1;
+			console.log(arrWords);
+		}
+	}
+		
+	//creates the required variables
+	intTempCounter = 0;
+	strMCWHolder1="";
+	strMCWHolder2="";
+	intCount2=0;
+	var strMostCommonWord2="";
+	
+	//loop goes through the whole array
+	for(var i = 0; i < arrWords.length; i++)
+	{
+		//It holds the value of this current position in the main array
+        strMCWHolder1 = arrWords[i];
+        intTempCounter = 1;
+        
+		//loop goes through the whole array
+        for(var j = 0; j < arrWords.length; j++)
+        {
+			//It holds the value of this current position in the main array
+            strMCWHolder2 = arrWords[j];
+                
+			//if they equal each other then the counter increases
+            if(strMCWHolder1 == strMCWHolder2)
+            {
+                intTempCounter++;
+				
+            }
+            
+			//if the counter is larger than the largest, then it becomes the most common word
+            if(intTempCounter > intCount2)
+            {
+                intCount2 = intTempCounter;
+                strMostCommonWord2 = strMCWHolder1;
+            }
+        }
+		
 	}
 	
+	for(var q = 0; q < arrWords.length; q++)
+	{
+		if (arrWords[q] == strMostCommonWord2)
+		{
+			console.log(arrWords);
+			arrWords.splice(q,1);
+			q -= 1;
+			console.log(arrWords);
+		}
+	}
 	
+	//creates the required variables
+	intTempCounter = 0;
+	strMCWHolder1="";
+	strMCWHolder2="";
+	intCount3=0;
+	var strMostCommonWord3="";
+	
+	//loop goes through the whole array
+	for(var i = 0; i < arrWords.length; i++)
+	{
+		//It holds the value of this current position in the main array
+        strMCWHolder1 = arrWords[i];
+        intTempCounter = 1;
+        
+		//loop goes through the whole array
+        for(var j = 0; j < arrWords.length; j++)
+        {
+			//It holds the value of this current position in the main array
+            strMCWHolder2 = arrWords[j];
+                
+			//if they equal each other then the counter increases
+            if(strMCWHolder1 == strMCWHolder2)
+            {
+                intTempCounter++;
+				
+            }
+            
+			//if the counter is larger than the largest, then it becomes the most common word
+            if(intTempCounter > intCount3)
+            {
+                intCount3 = intTempCounter;
+                strMostCommonWord3 = strMCWHolder1;
+            }
+        }
+		//Displays the most common word
+		document.getElementById("mostCommonWordP").style.visibility = "visible";
+        document.getElementById("mostCommonWordP").innerHTML = "The 3 common word is " +strMostCommonWord + strMostCommonWord2 + strMostCommonWord3 ;
+	}
+	
+	console.log(arrWords);
+	console.log(arrWords);
+	
+	 arrWords = arrWordsHold.slice(0);
 	
 	// Get the context of the canvas element we want to select
 	var ctx = document.getElementById("myChart").getContext("2d");
 	var data = {
-		labels: [strMostCommonWord, "2nd", "3rd"],
+		labels: [strMostCommonWord, strMostCommonWord2, strMostCommonWord3],
 		datasets:
 		[
         {
@@ -172,9 +271,9 @@ function displayMostCommonWord() {
             strokeColor: "rgba(220,220,220,0.8)",
             highlightFill: "rgba(220,220,220,0.75)",
             highlightStroke: "rgba(220,220,220,1)",
-            data: [intCount-1, 5, 3]
+            data: [intCount - 1, intCount2 - 1, intCount3 - 1]
         }
-		]
+		]	
 	};
 	myBarChart = new Chart(ctx).Bar(data,{responsive : true});
 }
@@ -193,4 +292,3 @@ var resetCanvas = function () {
   ctx.textAlign = 'center';
   ctx.fillText('This text is centered on the canvas', x, y);
 };
-
