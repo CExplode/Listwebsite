@@ -61,11 +61,34 @@ $(document).ready(function(){
 
 function enterWord() {
 	
-	//Getting the user's input 
-	strInput = document.getElementById("userInput").value;
+	//If it is blank then dont submit
+	var blnisValid = false;
+	while (blnisValid == false)
+	{
+		//Getting the user's input 
+		strInput = document.getElementById("userInput").value;
+		if (strInput != "")
+		{
+			blnisValid = true;
+		}
+		else
+		{
+			return;
+		}
+	}
 	
 	//puts each word into an array.
 	var arrTest = strInput.split(" "); 
+	
+	//Gets rid of any empty space
+	for(var j = 0; j < arrTest.length; j++)
+	{
+		if (arrTest[j] == "")
+		{
+			arrTest.splice(j,1);
+			j -= 1;
+		}
+	}
 	
 	//Puts each word into the main array
 	for(var i = 0; i < arrTest.length; i++) 
@@ -78,11 +101,11 @@ function enterWord() {
 	
 	//clears the text field
 	document.getElementById("userInput").value = ""; 
-	
 }
 
 function butType() {
 	myBarChart.destroy();
+	resetCanvas();
 }
 
 function butList() {
@@ -91,15 +114,33 @@ function butList() {
 	document.getElementById("listP").innerHTML = strBase;
 	
 	myBarChart.destroy();
+	resetCanvas();
 }
 
 function butAnalytics() {
+	
 	myBarChart.destroy();
+	resetCanvas();
 }
 
 function searchWord() {
-	//gets the user input and sees how many times it exists in the array
-	strInput = document.getElementById("userWordTest").value;
+	
+	//If it is blank then do not submit
+	var blnisValid = false;
+	while (blnisValid == false)
+	{
+		//gets the user input and sees how many times it exists in the array
+		strInput = document.getElementById("userWordTest").value;
+		if (strInput != "")
+		{
+			blnisValid = true;
+		}
+		else
+		{
+			return;
+		}
+	}
+	
 	var intCount=0;
 	for(var i = 0; i < arrWords.length; i++){
 		if( strInput == arrWords[i]){
@@ -118,7 +159,7 @@ function displayMostCommonWord() {
 	
 	var arrWordsHold=[];
 	arrWordsHold = arrWords.slice(0);
-	console.log(arrWords);
+	 
 	//creates the required variables
 	var intTempCounter = 0;
 	var strMCWHolder1="";
@@ -160,10 +201,10 @@ function displayMostCommonWord() {
 	{
 		if (arrWords[q] == strMostCommonWord)
 		{
-			console.log(arrWords);
+			 
 			arrWords.splice(q,1);
 			q -= 1;
-			console.log(arrWords);
+			 
 		}
 	}
 		
@@ -208,10 +249,10 @@ function displayMostCommonWord() {
 	{
 		if (arrWords[q] == strMostCommonWord2)
 		{
-			console.log(arrWords);
+			 
 			arrWords.splice(q,1);
 			q -= 1;
-			console.log(arrWords);
+			 
 		}
 	}
 	
@@ -254,10 +295,21 @@ function displayMostCommonWord() {
         document.getElementById("mostCommonWordP").innerHTML = "The 3 common word is " +strMostCommonWord + strMostCommonWord2 + strMostCommonWord3 ;
 	}
 	
-	console.log(arrWords);
-	console.log(arrWords);
-	
 	 arrWords = arrWordsHold.slice(0);
+	 console.log(arrWords);
+	
+	if(intCount == 0){
+		intCount = 1;
+		strMostCommonWord = "N/A";
+	}
+	if(intCount2 == 0){
+		intCount2 = 1;
+		strMostCommonWord2 = "N/A";
+	}
+	if(intCount3 == 0){
+		intCount3 = 1;
+		strMostCommonWord3 = "N/A";
+	}
 	
 	// Get the context of the canvas element we want to select
 	var ctx = document.getElementById("myChart").getContext("2d");
@@ -278,7 +330,7 @@ function displayMostCommonWord() {
 	myBarChart = new Chart(ctx).Bar(data,{responsive : true});
 }
 
-var resetCanvas = function () {
+function resetCanvas() {
   $('#results-graph').remove(); // this is my <canvas> element
   $('#graph-container').append('<canvas id="results-graph"><canvas>');
   canvas = document.querySelector('#results-graph');
