@@ -108,7 +108,7 @@
 			responsive: true,
 
 			// Boolean - whether to maintain the starting aspect ratio or not when responsive, if set to false, will take up entire container
-			maintainAspectRatio: true,
+			maintainAspectRatio: false,
 
 			// Boolean - Determines whether to draw tooltips on the canvas or not - attaches events to touchmove & mousemove
 			showTooltips: true,
