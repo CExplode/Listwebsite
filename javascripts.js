@@ -7,6 +7,7 @@ var strBase="";
 var arrWords= [];
 var myBarChart;
 var intHowManyGraphs = 0;
+var start = 0;
 
 $(document).ready(function() {
 	$("#userInput").fadeIn(3000);
@@ -15,8 +16,12 @@ $(document).ready(function() {
 
 $(document).ready(function(){
 	$("#typeSubmit").click(function(){
+		if(start == 0)
+		{
 		$("#userInput").fadeOut();
 		$("#typeSubmit").fadeOut();
+		start = 1;
+		}
 		$("#typeButton").fadeIn(2000);
 		$("#listButton").fadeIn(2000);
 		$("#analyticsButton").fadeIn(2000);
