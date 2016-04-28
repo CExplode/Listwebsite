@@ -6,7 +6,7 @@ var strInput="";
 var strBase="";
 var arrWords= [];
 var myBarChart;
-var intHowManyGraphs = 0;
+var graphCheck = false;
 var start = 0;
 
 $(document).ready(function() {
@@ -111,7 +111,11 @@ function enterWord() {
 }
 
 function butType() {
-	
+	if (graphCheck == true)
+	{
+		myBarChart.destroy();
+		graphCheck = false;
+	}
 }
 
 function butList() {
@@ -119,14 +123,12 @@ function butList() {
 	document.getElementById("listP").style.visibility = "visible";
 	document.getElementById("listP").innerHTML = strBase;
 	
-	console.log(intHowManyGraphs);
-	
-	for(var i = 0; i < intHowManyGraphs; i++)
+	if (graphCheck == true)
 	{
 		myBarChart.destroy();
-		resetCanvas();
+		graphCheck = false;
 	}
-	intHowManyGraphs = 0;
+	
 }
 
 function butAnalytics() {
@@ -167,9 +169,6 @@ function searchWord() {
 	}
 
 function displayMostCommonWord() {
-	
-	intHowManyGraphs +=1;
-	
 	
 	var arrWordsHold=[];
 	arrWordsHold = arrWords.slice(0);
@@ -325,7 +324,10 @@ function displayMostCommonWord() {
 		strMostCommonWord3 = "N/A";
 	}
 	
-	
+	if(graphCheck == true)
+	{
+		myBarChart.destroy();
+	}
 	
 	// Get the context of the canvas element we want to select
 	var ctx = document.getElementById("myChart").getContext("2d");
@@ -344,6 +346,9 @@ function displayMostCommonWord() {
 		]	
 	};
 	myBarChart = new Chart(ctx).Bar(data,{responsive : true});
+	
+	graphCheck = true;
+	
 }
 
 function resetCanvas() {
